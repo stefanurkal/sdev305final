@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Give a gift page</title>
+    <link rel="stylesheet" href="styles/home.css">
+</head>
+
+<body>
+    <div class="parent">
+        <div class="div1">
+        <h1> Give a Gift</h1>    
+        </div>
+        <div class="div2">           
+             <div>
+                 <a href="/"> Home </a>
+            </div>
+            <div>
+                 <a href="/register"> Request a gift</a>
+            </div>   
+        </div>
+
+        <div class="div3"> 
+            <% if (data.length !== 0) { %>
+                <% for(let i = 0; i < data.length; i++ ) { %>
+                    <div class ="wishes">
+                    <form id="gift-give" method="POST" action="/success2">
+                    <ul>
+                        <li id="requestNum">Gift ID# <%= data[i].id %></li>
+                        <li><%= data[i].receiverName %></li>
+                        <li>Age: <%= data[i].age %> </li>
+                        <% if (data[i].gender !=='na') { %>
+                            <li>Gender <%= data[i].gender %></li>
+                        <% } %>
+                        <li> Requested gift <%= data[i].gift %> </li>
+    
+                    </ul>
+                    <button id ="claim" type="submit">claim</button>
+                    </form>
+                    </div>
+                    <% } %>
+                    <% } else { %>
+                        <p>No Gift Requesets submit your own!</p>
+                    <% } %>
+        </div>
+        <div class="div7"> 
+            <form id="search" method="POST" action="/sort">
+                <legend>Sort By</legend>
+            <div>    
+                <label for="oldest"> 
+                    <input type="radio" id="pickup" 
+                        name="sort" value="newest"> newest first
+                </label>
+            </div>
+            <div>
+                <label for="age">
+                    <input type="radio" id="age" 
+                        name="sort" value="age"> By age
+                </label>
+            </div>
+            <div>
+                <label for="name">
+                    <input type="radio" id="name" 
+                        name="sort" value="name"> Name A-Z
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+    </div>
+</body>
+</html>

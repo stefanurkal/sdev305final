@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gift App confirmation</title>
+    <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+
+    <div class="parent">
+        <div class="div1">
+        <h1>We have received your wish, <%= details.name %>!</h1>    
+        </div>
+        <div class="div2">
+            <div>
+                <a href="/"> Home </a>
+            </div>
+            <div>
+                <a href="/register"> Register a gift</a>
+            </div>  
+            <div>
+                <a href="/give"> Give a gift</a>
+            </div>
+        </div>
+        <div class="div5"> 
+            <h2>
+                Your gift request: <%= details.gift %>
+            </h2> 
+        </div>
+        <div class="div7">
+            <img src="images/bluegift.png" alt="blue gift box">
+        </div>
+    </div>
+-
+</body>
+</html>
